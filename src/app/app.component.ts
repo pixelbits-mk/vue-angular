@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
       <v-container id="inspire">
       <v-row no-gutters>
         <v-col cols="12">
-          <v-calendar  :attributes='attrs'></v-calendar>
+          <v-calendar  :masks="{ title: '[TODAY], MMM YYYY' }"   :attributes='attrs'></v-calendar>
         </v-col>
       </v-row>
       <v-row no-gutters>
@@ -105,7 +105,7 @@ export class AppComponent implements OnInit {
           picker: null,
           time: null,
           menu2: false,
-          modal2: false,
+          modal2: false
         };
       },
       methods: {
