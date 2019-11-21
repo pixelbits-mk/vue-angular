@@ -28,12 +28,14 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/vue/dist/vue.js",
               "node_modules/vue-custom-element/dist/vue-custom-element.js",
-              "node_modules/v-calendar/lib/v-calendar.umd.js"
+              "node_modules/v-calendar/lib/v-calendar.umd.js",
+              "node_modules/vuetify/dist/vuetify.js"
             ]
           },
           "configurations": {
@@ -97,6 +99,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -128,6 +131,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "app12"
 }
