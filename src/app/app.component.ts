@@ -10,12 +10,17 @@ declare const Vuetify: any;
 })
 export class AppComponent implements OnInit {
   text = 'hello there how are you?';
+  show = false;
+  onEvent(event) {
+    event.stopPropagation();
+    this.show = !this.show;
+  }
   ngOnInit() {
     const text = this.text;
     const MyVueWebComp = {
       props: [],
       template: `
-      <v-app id="calendar">
+      <v-app class="calendar">
       <v-container id="inspire">
       <v-row no-gutters>
         <v-col cols="12">

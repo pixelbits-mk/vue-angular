@@ -4,7 +4,14 @@
 // ::ng-deep  .styled-input label[for] {
 //     width: 50%;
 //   }
-::ng-deep #calendar {
- width: 280px;  
+#calendar {
+ width: 290px;  
  background-color: transparent;
+}
+::ng-deep #calendar .calendar {
+    background-color: transparent;
+}
+::ng-deep .compact .vc-grid-container.vc-weeks {
+    visibility: hidden;
+    height: 0px;
 }
