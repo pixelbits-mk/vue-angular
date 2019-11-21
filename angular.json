@@ -30,7 +30,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/vue/dist/vue.js",
+              "node_modules/vue-custom-element/dist/vue-custom-element.js",
+              "node_modules/v-calendar/lib/v-calendar.umd.js"
+            ]
           },
           "configurations": {
             "production": {
