@@ -15,3 +15,6 @@
     visibility: hidden;
     height: 0px;
 }
+::ng-deep .container {
+    padding: 0px;
+}

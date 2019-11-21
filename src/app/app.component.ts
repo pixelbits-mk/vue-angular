@@ -8,7 +8,7 @@ declare const Vuetify: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   text = 'hello there how are you?';
   show = false;
   onEvent(event) {
@@ -117,5 +117,8 @@ export class AppComponent implements OnInit {
       }
     };
     Vue.customElement('vue-calendar', MyVueWebComp);
+  }
+  ngAfterViewInit() {
+
   }
 }
