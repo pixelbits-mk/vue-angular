@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "app12": {
+    "app17": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/app12",
+            "outputPath": "dist/app17",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,18 +73,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app12:build"
+            "browserTarget": "app17:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "app12:build:production"
+              "browserTarget": "app17:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "app12:build"
+            "browserTarget": "app17:build"
           }
         },
         "test": {
@@ -122,16 +122,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "app12:serve"
+            "devServerTarget": "app17:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "app12:serve:production"
+              "devServerTarget": "app17:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "app12"
+  "defaultProject": "app17"
 }
