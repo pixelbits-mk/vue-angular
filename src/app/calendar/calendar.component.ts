@@ -10,9 +10,23 @@ declare const VueTimepicker: any;
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-  constructor() { }
+  @Input()
+  date: Date;
+
+  @Input()
+  from: any;
+
+  @Input()
+  to: any;
+
+  constructor() {
+  }
 
   ngOnInit() {
+    const date = this.date;
+    const from = this.from;
+    const to = this.to;
+
     Vue.customElement('vue-calendar', {
       components: { VueTimepicker: VueTimepicker.default },
       props: [],
@@ -41,14 +55,14 @@ export class CalendarComponent implements OnInit {
       `,
       data() {
         return {
-          date: new Date(),
+          date: date || new Date(),
           today: new Date(),
-          from: {
+          from: from || {
             hh: '08',
             mm: '00',
             A: 'AM'
           },
-         to: {
+         to: to || {
             hh: '09',
             mm: '00',
             A: 'PM'
