@@ -16,20 +16,22 @@
 }
 ::ng-deep .time .vue__time-picker {
     input {
-        font-size: 10px;
-        width: 45px;
+        font-size: 12px;
+        width: 55px;
         border: 0px;
         padding: 0px;
+        height: 12px;
+        color: green;
     }
     input:focus {
         outline: none;
     }
-    width: 50px;
+    width: 55px;
 }
 ::ng-deep .select-list ul li{
-    font-size: 10px!important;
+    font-size: 12px!important;
 }
 ::ng-deep .vue__time-picker .dropdown {
-    font-size: 10px!important;
+    font-size: 12px!important;
     width: 10em;
 }
