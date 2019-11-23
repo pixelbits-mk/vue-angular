@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import dateformat from 'dateformat';
 
 declare const Vue: any;
@@ -19,13 +19,15 @@ export class CalendarComponent implements OnInit {
   @Input()
   to: any;
 
+  @Output()
+  dateChange: EventEmitter<Date>;
+
   constructor() {
+    this.dateChange = new EventEmitter<Date>();
   }
 
   ngOnInit() {
-    const date = this.date;
-    const from = this.from;
-    const to = this.to;
+    const $this = this;
 
     Vue.customElement('vue-calendar', {
       components: { VueTimepicker: VueTimepicker.default },
@@ -34,7 +36,7 @@ export class CalendarComponent implements OnInit {
       <div class="calendar">
         <div class="date">
           <a v-on:click="prevDay()"><i class="material-icons">keyboard_arrow_left</i></a>
-          <v-date-picker :min-date="today" v-model="date" :popover="{ placement: 'bottom', visibility: 'click' }">
+          <v-date-picker v-on:input="onChange" :min-date="today" v-model="date" :popover="{ placement: 'bottom', visibility: 'click' }">
             <a>
               <i class="material-icons">date_range</i>&nbsp;&nbsp;
               <span v-if="isToday()">TODAY</span><span v-if="!isToday()">{{ getDisplayString() }}</span>
@@ -55,14 +57,14 @@ export class CalendarComponent implements OnInit {
       `,
       data() {
         return {
-          date: date || new Date(),
+          date: $this.date || new Date(),
           today: new Date(),
-          from: from || {
+          from: $this.from || {
             hh: '08',
             mm: '00',
             A: 'AM'
           },
-         to: to || {
+         to: $this.to || {
             hh: '09',
             mm: '00',
             A: 'PM'
@@ -83,6 +85,11 @@ export class CalendarComponent implements OnInit {
         prevDay() {
           if (!this.isToday()) {
             this.date = new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate() - 1);
+          }
+        },
+        onChange($event) {
+          if ($event != null && $this.date !== $event) {
+            $this.dateChange.next($event);
           }
         }
       }
