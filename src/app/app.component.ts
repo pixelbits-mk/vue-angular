@@ -9,7 +9,7 @@ import VueCustomElement from 'vue-custom-element';
 })
 export class AppComponent implements OnInit {
   title = 'app17';
-  date = new Date(2021, 1, 1);
+  date = new Date();
   from = {  hh: '01', mm: '00', A: 'AM' };
   to = {  hh: '09', mm: '00', A: 'AM' };
 

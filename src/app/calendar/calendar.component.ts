@@ -56,9 +56,10 @@ export class CalendarComponent implements OnInit {
       </div>
       `,
       data() {
+        const today = new Date();
         return {
-          date: $this.date || new Date(),
-          today: new Date(),
+          date: $this.date,
+          today: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
           from: $this.from || {
             hh: '08',
             mm: '00',
@@ -74,7 +75,10 @@ export class CalendarComponent implements OnInit {
       },
       methods: {
         isToday() {
-          return dateformat(this.today, 'yyyy/mm/dd') === dateformat(this.date, 'yyyy/mm/dd');
+          if (this.date) {
+            return dateformat(this.today, 'yyyy/mm/dd') === dateformat(this.date, 'yyyy/mm/dd');
+          }
+          return false;
         },
         getDisplayString() {
           return dateformat(this.date, 'mmm dd, yyyy');
@@ -88,9 +92,11 @@ export class CalendarComponent implements OnInit {
           }
         },
         onChange($event) {
-          if ($event != null && $this.date !== $event) {
-            $this.dateChange.next($event);
+          if (!$event) {
+            $event = this.today;
+            this.date = this.today;
           }
+          $this.dateChange.next($event);
         }
       }
     });
