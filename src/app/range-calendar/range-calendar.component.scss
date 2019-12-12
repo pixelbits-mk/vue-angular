@@ -13,32 +13,3 @@
     vertical-align: middle;
     line-height: 30px;
 }
-
-::ng-deep .time {
-    vertical-align: middle;
-    line-height: 12px; 
-    font-size: 12px;
-    width: 100%;
-    text-align: center;
-}
-::ng-deep .time .vue__time-picker {
-    input {
-        font-size: 12px;
-        width: 55px;
-        border: 0px;
-        padding: 0px;
-        height: 12px;
-        color: green;
-    }
-    input:focus {
-        outline: none;
-    }
-    width: 55px;
-}
-::ng-deep .select-list ul li{
-    font-size: 12px!important;
-}
-::ng-deep .vue__time-picker .dropdown {
-    font-size: 12px!important;
-    width: 10em;
-}
