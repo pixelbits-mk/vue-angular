@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import VueCustomElement from 'vue-custom-element';
+import { DateRange } from './range-calendar/range-calendar.model';
 
 
 @Component({
@@ -9,11 +10,14 @@ import VueCustomElement from 'vue-custom-element';
 })
 export class AppComponent implements OnInit {
   title = 'app17';
-  date = new Date();
-  from = {  hh: '01', mm: '00', A: 'AM' };
-  to = {  hh: '09', mm: '00', A: 'AM' };
+  dateRange: DateRange;
+
 
   ngOnInit() {
-
+    const date = new Date();
+    this.dateRange = {
+      start: new Date(),
+      end: new Date()
+    };
   }
 }
