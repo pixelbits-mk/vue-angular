@@ -13,12 +13,6 @@ export class CalendarComponent implements OnInit {
   @Input()
   date: Date;
 
-  @Input()
-  from: any;
-
-  @Input()
-  to: any;
-
   @Output()
   dateChange: EventEmitter<Date>;
 
@@ -44,33 +38,13 @@ export class CalendarComponent implements OnInit {
           </v-date-picker>
           <a  v-on:click="nextDay()"><i class="material-icons">keyboard_arrow_right</i></a>
         </div>
-        <div class="time">
-          <span class="from-to">
-            <vue-timepicker
-            :minute-range="[0]" hide-clear-button close-on-complete v-model="from" minute-interval="15" :format="format"></vue-timepicker>
-            -
-            <vue-timepicker
-            :minute-range="[0]" hide-clear-button close-on-complete v-model="to" minute-interval="15" :format="format"></vue-timepicker>
-          </span>
-        </div>
       </div>
       `,
       data() {
         const today = new Date();
         return {
           date: $this.date,
-          today: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
-          from: $this.from || {
-            hh: '08',
-            mm: '00',
-            A: 'AM'
-          },
-         to: $this.to || {
-            hh: '09',
-            mm: '00',
-            A: 'PM'
-          },
-          format: 'hh:mm A'
+          today: new Date(today.getFullYear(), today.getMonth(), today.getDate())
         };
       },
       methods: {
